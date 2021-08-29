@@ -7,3 +7,11 @@ export interface Article {
 export interface Contents {
   contents: Article[];
 }
+
+export type blogType = {
+  blog: {
+    id: string;
+    title: string;
+    body: string;
+  }[];
+};

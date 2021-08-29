@@ -1,6 +1,7 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Link from 'next/link';
-import { client } from '../../../libs/client';
+import Layout from '../../components/layouts/Layout';
+import { client } from '../../libs/client';
 import { Contents } from '../../types/index';
 
 export default function PostsDetail({
@@ -13,13 +14,15 @@ export default function PostsDetail({
   };
 }) {
   return (
-    <div>
-      <p>{blog.title}</p>
-      <p>{blog.body}</p>
-      <Link href='/'>
-        <a>Back to List</a>
-      </Link>
-    </div>
+    <Layout>
+      <div>
+        <p>{blog.title}</p>
+        <p>{blog.body}</p>
+        <Link href='/'>
+          <a>Back to List</a>
+        </Link>
+      </div>
+    </Layout>
   );
 }
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -29,7 +32,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const id = context.params.id;
+  const id = context.params!.id;
   const data: Contents = await client.get({ endpoint: 'blog', contentId: id });
   return {
     props: {

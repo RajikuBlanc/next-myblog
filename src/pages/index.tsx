@@ -1,23 +1,12 @@
 import { GetStaticProps } from 'next';
-import Head from 'next/head';
 import Link from 'next/link';
-import { client } from '../../libs/client';
-import { Contents } from '../types/index';
+import Layout from '../components/layouts/Layout';
+import { client } from '../libs/client';
+import { Contents, blogType } from '../types/index';
 
-export default function Home({
-  blog,
-}: {
-  blog: {
-    id: string;
-    title: string;
-    body: string;
-  }[];
-}): JSX.Element {
+export default function Home({ blog }: blogType): JSX.Element {
   return (
-    <div>
-      <Head>
-        <title>Create Next Blog</title>
-      </Head>
+    <Layout>
       <h1>Hello Next Blog</h1>
       <ul>
         {blog.map((blog) => {
@@ -30,13 +19,11 @@ export default function Home({
           );
         })}
       </ul>
-    </div>
+    </Layout>
   );
 }
-
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const data: Contents = await client.get({ endpoint: 'blog' });
-
   return {
     props: {
       blog: data.contents,
