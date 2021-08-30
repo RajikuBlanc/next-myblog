@@ -23,5 +23,5 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 const Common_div = styled.div`
-  margin-top: 6rem;
+  margin-top: 8rem;
 `;

@@ -13,6 +13,7 @@ export type blogType = {
     id: string;
     title: string;
     body: string;
+    updatedAt: string;
     tags: [
       {
         id: string;
@@ -22,5 +23,8 @@ export type blogType = {
         };
       },
     ];
+    thumbnail: {
+      url: string;
+    };
   }[];
 };
