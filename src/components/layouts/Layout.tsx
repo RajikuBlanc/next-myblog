@@ -1,10 +1,13 @@
 import Head from 'next/head';
+import styled from 'styled-components';
 import GlobalStyles from '../../styles/GlobalStyles';
 import Container from './Container';
+import Footer from './Footer';
 import Header from './Header';
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <>
+    <Common_div>
       <Head>
         <title>Blanc</title>
         <link
@@ -15,6 +18,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <GlobalStyles />
       <Header />
       <Container>{children}</Container>
-    </>
+      <Footer />
+    </Common_div>
   );
 }
+const Common_div = styled.div`
+  margin-top: 6rem;
+`;

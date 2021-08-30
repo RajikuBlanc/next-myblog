@@ -1,17 +1,12 @@
+/* eslint-disable @next/next/link-passhref */
 import Link from 'next/link';
 import styled from 'styled-components';
 export default function Header() {
   return (
     <HeaderStyle>
-      <Logo_p>Blanc</Logo_p>
-      <NavItem_nav>
-        <Link href='/'>
-          <a>home</a>
-        </Link>
-        <Link href='/'>
-          <a>about</a>
-        </Link>
-      </NavItem_nav>
+      <Link href='/'>
+        <Logo_a>Blanc</Logo_a>
+      </Link>
     </HeaderStyle>
   );
 }
@@ -23,17 +18,17 @@ const HeaderStyle = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 5px 10px var(--subprimary);
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: var(--white);
 `;
-const NavItem_nav = styled.nav`
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  a {
-    font-size: 16px;
-    text-transform: uppercase;
-  }
-`;
-const Logo_p = styled.p`
+
+const Logo_a = styled.a`
   font-size: 3rem;
   font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--primary);
+  cursor: pointer;
 `;

@@ -13,5 +13,14 @@ export type blogType = {
     id: string;
     title: string;
     body: string;
+    tags: [
+      {
+        id: string;
+        name: string;
+        tagimage: {
+          url: string;
+        };
+      },
+    ];
   }[];
 };
