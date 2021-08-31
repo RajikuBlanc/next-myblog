@@ -20,7 +20,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export default function Home({ blog }: blogType): JSX.Element {
   return (
     <Layout>
-      <h1>Hello Next Blog</h1>
       <PostList_ul>
         <PostItem blog={blog} />
       </PostList_ul>
