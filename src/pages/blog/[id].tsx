@@ -3,16 +3,25 @@ import Link from 'next/link';
 import Layout from '../../components/layouts/Layout';
 import { client } from '../../libs/client';
 import { Contents } from '../../types/index';
-
-export default function PostsDetail({
-  blog,
-}: {
-  blog: {
-    id: string;
-    title: string;
-    body: string;
+type PropType = {
+  id: string;
+  title: string;
+  body: string;
+  updatedAt: string;
+  tags: [
+    {
+      id: string;
+      name: string;
+      tagimage: {
+        url: string;
+      };
+    },
+  ];
+  thumbnail: {
+    url: string;
   };
-}) {
+};
+export default function PostsDetail({ blog }: { blog: PropType }) {
   return (
     <Layout>
       <div>
