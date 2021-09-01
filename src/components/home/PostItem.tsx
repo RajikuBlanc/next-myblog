@@ -5,7 +5,7 @@ import Moment from 'react-moment';
 import styled from 'styled-components';
 import { blogType } from '../../types/index';
 // --------------- Function ---------------
-export default function PostItem({ blog }: blogType) {
+export default function PostItem({ blog }: blogType): JSX.Element {
   return (
     <>
       {blog.map((blog) => {

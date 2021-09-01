@@ -2,6 +2,7 @@
 import { GetStaticProps } from 'next';
 import styled from 'styled-components';
 import PostItem from '../components/home/PostItem';
+import TagList from '../components/home/TagList';
 import Layout from '../components/layouts/Layout';
 import { client } from '../libs/client';
 import { Contents, blogType } from '../types/index';
@@ -20,6 +21,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export default function Home({ blog }: blogType): JSX.Element {
   return (
     <Layout>
+      <TagList />
       <PostList_ul>
         <PostItem blog={blog} />
       </PostList_ul>
