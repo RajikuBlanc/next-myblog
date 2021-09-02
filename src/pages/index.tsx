@@ -6,7 +6,6 @@ import TagList from '../components/home/TagList';
 import Layout from '../components/layouts/Layout';
 import { client } from '../libs/client';
 import { Contents, blogType } from '../types/index';
-
 // --------------- SSG ---------------
 export const getStaticProps: GetStaticProps = async (context) => {
   const data: Contents = await client.get({ endpoint: 'blog' });
