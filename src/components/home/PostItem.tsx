@@ -50,7 +50,7 @@ export default function PostItem({ blog }: blogType): JSX.Element {
 
 // --------------- Style ---------------
 const PostItem_li = styled.li`
-  width: 30%;
+  width: 300px;
   border: 1px solid #000;
 `;
 const Tittle_a = styled.a`

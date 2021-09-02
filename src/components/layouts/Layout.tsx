@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 import GlobalStyles from '../../styles/GlobalStyles';
+import { Medias } from '../../styles/Media';
+import TagList from '../home/TagList';
 import Container from './Container';
 import Footer from './Footer';
 import Header from './Header';
@@ -17,6 +19,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </Head>
       <GlobalStyles />
       <Header />
+      <TagList />
       <Container>{children}</Container>
       <Footer />
     </Common_div>
@@ -24,4 +27,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 }
 const Common_div = styled.div`
   margin-top: 8rem;
+  ${Medias.sp} {
+    margin-top: 11rem;
+  }
 `;

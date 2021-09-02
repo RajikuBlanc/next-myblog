@@ -2,9 +2,9 @@
 import { GetStaticProps } from 'next';
 import styled from 'styled-components';
 import PostItem from '../components/home/PostItem';
-import TagList from '../components/home/TagList';
 import Layout from '../components/layouts/Layout';
 import { client } from '../libs/client';
+import { Medias } from '../styles/Media';
 import { Contents, blogType } from '../types/index';
 // --------------- SSG ---------------
 export const getStaticProps: GetStaticProps = async (context) => {
@@ -20,7 +20,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export default function Home({ blog }: blogType): JSX.Element {
   return (
     <Layout>
-      <TagList />
       <PostList_ul>
         <PostItem blog={blog} />
       </PostList_ul>
@@ -34,4 +33,7 @@ const PostList_ul = styled.ul`
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
+  ${Medias.sp} {
+    gap: 3rem;
+  }
 `;

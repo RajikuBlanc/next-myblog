@@ -1,15 +1,23 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import styled from 'styled-components';
+import { Medias } from '../../styles/Media';
+
 // --------------- function ---------------
-export default function TagItem({ name }: { name: string }) {
+export default function TagItem({ name, href }: { name: string; href: string }) {
   return (
-    <li>
+    <TagItem_li>
       <Link href={`/tags/${name}`}>
-        <a>{name}</a>
+        <a>
+          <Image src={href} alt='タグ画像' width={30} height={30}></Image>
+        </a>
       </Link>
-      <Link href={`/tags/${name}`}>
-        <a></a>
-      </Link>
-    </li>
+    </TagItem_li>
   );
 }
+const TagItem_li = styled.li`
+  display: flex;
+  justify-content: center;
+  ${Medias.sp} {
+  }
+`;

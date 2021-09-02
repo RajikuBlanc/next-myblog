@@ -1,12 +1,27 @@
 /* eslint-disable @next/next/link-passhref */
 import Link from 'next/link';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+interface HeaderProps {
+  scroll: number;
+}
 export default function Header() {
+  const [scrollY, setScrollY] = useState(0);
+
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <HeaderStyle>
       <Link href='/'>
         <Logo_a>Blanc</Logo_a>
       </Link>
+      <p>{scrollY}</p>
     </HeaderStyle>
   );
 }
@@ -23,6 +38,7 @@ const HeaderStyle = styled.header`
   left: 0;
   top: 0;
   background-color: var(--white);
+  z-index: 999;
 `;
 
 const Logo_a = styled.a`
