@@ -7,7 +7,8 @@ export default function TagList() {
   return (
     <Container>
       <TagList_ul>
-        <TagItem name='next' href='/images/nextjs.svg' />
+        <TagItem name='next' href='/images/tagIcon/nextjs.svg' />
+        <TagItem name='typescript' href='/images/tagIcon/typescript.svg' />
         {/* <TagItem name='react' href='/images/react.svg' /> */}
       </TagList_ul>
     </Container>

@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import Container from '../../components/layouts/Container';
 import Layout from '../../components/layouts/Layout';
 import { client } from '../../libs/client';
+import { Medias } from '../../styles/Media';
 import { Contents } from '../../types/index';
 
 // --------------- Type ---------------
@@ -48,23 +49,21 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export default function PostsDetail({ blog }: { blog: PropType }) {
   return (
     <Layout>
-      <Container>
-        <Title_h2>{blog.title}</Title_h2>
-        <PublishDate_p>
-          <Moment format='YYYY/MM/DD'>{blog.updatedAt}</Moment>
-        </PublishDate_p>
-        <Body_section>
-          <Image src={blog.thumbnail.url} alt='サムネイル' width={1200} height={600}></Image>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `${blog.body}`,
-            }}
-          />
-        </Body_section>
-        <Link href='/'>
-          <BackButton_a>Back to List</BackButton_a>
-        </Link>
-      </Container>
+      <Title_h2>{blog.title}</Title_h2>
+      <PublishDate_p>
+        <Moment format='YYYY/MM/DD'>{blog.updatedAt}</Moment>
+      </PublishDate_p>
+      <Body_section>
+        <Image src={blog.thumbnail.url} alt='サムネイル' width={1200} height={600}></Image>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `${blog.body}`,
+          }}
+        />
+      </Body_section>
+      <Link href='/'>
+        <BackButton_a>Back to List</BackButton_a>
+      </Link>
     </Layout>
   );
 }
@@ -89,10 +88,11 @@ const Body_section = styled.section`
     font-size: 2.4rem;
   }
   h3 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
   p {
     font-size: 2rem;
+    line-height: 2;
   }
   li {
     list-style: inside;
@@ -102,6 +102,27 @@ const Body_section = styled.section`
     color: var(--blue);
     &:hover {
       text-decoration: underline;
+    }
+  }
+  ${Medias.sp} {
+    h2 {
+      font-size: 1.8rem;
+    }
+    h3 {
+      font-size: 1.6rem;
+    }
+    p {
+      font-size: 1.4rem;
+    }
+    li {
+      list-style: inside;
+      font-size: 1.2rem;
+    }
+    a {
+      color: var(--blue);
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 `;

@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { Medias } from '../../styles/Media';
 interface HeaderProps {
   scroll: number;
 }
@@ -21,7 +22,7 @@ export default function Header() {
       <Link href='/'>
         <Logo_a>Blanc</Logo_a>
       </Link>
-      <p>{scrollY}</p>
+      {/* <p>{scrollY}</p> */}
     </HeaderStyle>
   );
 }
@@ -39,6 +40,9 @@ const HeaderStyle = styled.header`
   top: 0;
   background-color: var(--white);
   z-index: 999;
+  ${Medias.sp} {
+    padding-left: 2rem;
+  }
 `;
 
 const Logo_a = styled.a`
