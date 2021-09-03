@@ -10,6 +10,7 @@ const GlobalStyles = createGlobalStyle`
   :root{
     --primary: #707070;
     --subprimary: #DFDFDF;
+    --blue: #007ACC;
     --white : #ffffff;
     --black: #000000;
 

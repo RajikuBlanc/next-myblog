@@ -13,7 +13,13 @@ export default function PostItem({ blog }: blogType): JSX.Element {
           <PostItem_li key={blog.id}>
             <Link href={`/blog/${blog.id}`}>
               <a>
-                <Image src={blog.thumbnail.url} alt='サムネイル' width={400} height={250}></Image>
+                <Image
+                  className='tumbnail'
+                  src={blog.thumbnail.url}
+                  alt='サムネイル'
+                  width={400}
+                  height={250}
+                ></Image>
               </a>
             </Link>
 
@@ -51,7 +57,10 @@ export default function PostItem({ blog }: blogType): JSX.Element {
 // --------------- Style ---------------
 const PostItem_li = styled.li`
   width: 300px;
-  border: 1px solid #000;
+  border: 1px solid var(--primary);
+  .tumbnail {
+    object-fit: contain;
+  }
 `;
 const Tittle_a = styled.a`
   font-size: 1.4rem;

@@ -36,7 +36,6 @@ const Fotter = styled.footer`
   height: 160px;
   background-color: var(--primary);
   padding-top: 7rem;
-  margin-top: 2rem;
   .snsIcon {
     width: 30px;
     height: auto;

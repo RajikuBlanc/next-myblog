@@ -19,8 +19,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </Head>
       <GlobalStyles />
       <Header />
-      <TagList />
       <Container>{children}</Container>
+      <TagList />
       <Footer />
     </Common_div>
   );

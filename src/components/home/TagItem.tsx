@@ -18,6 +18,15 @@ export default function TagItem({ name, href }: { name: string; href: string }) 
 const TagItem_li = styled.li`
   display: flex;
   justify-content: center;
+  a {
+    display: block;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   ${Medias.sp} {
+    align-items: center;
+    height: 100%;
   }
 `;

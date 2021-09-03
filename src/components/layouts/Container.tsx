@@ -7,5 +7,5 @@ export default function Container({ children }: { children: React.ReactNode }) {
 const Container_div = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 5rem;
+  padding: 0 1.2rem;
 `;
