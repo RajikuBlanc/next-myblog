@@ -139,6 +139,7 @@ const BackButton_a = styled.a`
   border: 1px solid var(--primary);
   cursor: pointer;
   color: var(--primary);
+  margin-top: 2rem;
   &:hover {
     color: var(--blue);
     border: 1px solid var(--blue);
