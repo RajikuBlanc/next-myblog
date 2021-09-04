@@ -6,6 +6,7 @@ export interface Article {
 
 export interface Contents {
   contents: Article[];
+  body: string;
 }
 export interface Tag {
   id: string;

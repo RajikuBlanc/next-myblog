@@ -1,14 +1,16 @@
 /* eslint-disable @next/next/link-passhref */
+import cheerio from 'cheerio';
+import hljs from 'highlight.js';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Moment from 'react-moment';
 import styled from 'styled-components';
-import Container from '../../components/layouts/Container';
 import Layout from '../../components/layouts/Layout';
 import { client } from '../../libs/client';
 import { Medias } from '../../styles/Media';
 import { Contents } from '../../types/index';
+import 'highlight.js/styles/night-owl.css';
 
 // --------------- Type ---------------
 type PropType = {
@@ -36,17 +38,30 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context: any) => {
   const id = context.params!.id;
   const data: Contents = await client.get({ endpoint: 'blog', contentId: `${id}` });
+  const $ = cheerio.load(data.body);
+  $('pre code').each((_, elm) => {
+    const result = hljs.highlightAuto($(elm).text());
+    $(elm).html(result.value);
+    $(elm).addClass('hljs');
+  });
   return {
     props: {
       blog: data,
+      highlightedBody: $.html(),
     },
   };
 };
 // --------------- Function ---------------
-export default function PostsDetail({ blog }: { blog: PropType }) {
+export default function PostsDetail({
+  blog,
+  highlightedBody,
+}: {
+  blog: PropType;
+  highlightedBody: any;
+}) {
   return (
     <Layout>
       <Title_h2>{blog.title}</Title_h2>
@@ -55,11 +70,7 @@ export default function PostsDetail({ blog }: { blog: PropType }) {
       </PublishDate_p>
       <Body_section>
         <Image src={blog.thumbnail.url} alt='サムネイル' width={1200} height={600}></Image>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `${blog.body}`,
-          }}
-        />
+        <div dangerouslySetInnerHTML={{ __html: highlightedBody }}></div>
       </Body_section>
       <Link href='/'>
         <BackButton_a>Back to List</BackButton_a>
