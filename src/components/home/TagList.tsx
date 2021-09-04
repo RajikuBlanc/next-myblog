@@ -8,8 +8,8 @@ export default function TagList() {
     <Container>
       <TagList_ul>
         <TagItem name='next' href='/images/tagIcon/nextjs.svg' />
+        <TagItem name='react' href='/images/react.svg' />
         <TagItem name='typescript' href='/images/tagIcon/typescript.svg' />
-        {/* <TagItem name='react' href='/images/react.svg' /> */}
       </TagList_ul>
     </Container>
   );
