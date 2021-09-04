@@ -6,12 +6,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Moment from 'react-moment';
 import styled from 'styled-components';
+import BackToButton from '../../components/common/BackToButton';
 import Layout from '../../components/layouts/Layout';
 import { client } from '../../libs/client';
-import { Medias } from '../../styles/Media';
+import { Body_section } from '../../styles/Blogstyles';
 import { Contents } from '../../types/index';
 import 'highlight.js/styles/night-owl.css';
-
 // --------------- Type ---------------
 type PropType = {
   id: string;
@@ -72,9 +72,7 @@ export default function PostsDetail({
         <Image src={blog.thumbnail.url} alt='サムネイル' width={1200} height={600}></Image>
         <div dangerouslySetInnerHTML={{ __html: highlightedBody }}></div>
       </Body_section>
-      <Link href='/'>
-        <BackButton_a>Back to List</BackButton_a>
-      </Link>
+      <BackToButton />
     </Layout>
   );
 }
@@ -85,78 +83,9 @@ const Title_h2 = styled.h2`
   text-align: center;
   margin-bottom: 1rem;
 `;
-const Body_section = styled.section`
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    color: var(--black);
-  }
-  h2 {
-    font-size: 2.4rem;
-  }
-  h3 {
-    font-size: 2.2rem;
-  }
-  p {
-    font-size: 2rem;
-    line-height: 2;
-  }
-  li {
-    list-style: inside;
-    font-size: 2rem;
-  }
-  a {
-    color: var(--blue);
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-  ${Medias.sp} {
-    h2 {
-      font-size: 1.8rem;
-    }
-    h3 {
-      font-size: 1.6rem;
-    }
-    p {
-      font-size: 1.4rem;
-    }
-    li {
-      list-style: inside;
-      font-size: 1.2rem;
-    }
-    a {
-      color: var(--blue);
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-`;
-const BackButton_a = styled.a`
-  width: 200px;
-  height: 50px;
-  border-radius: 5px;
-  font-size: 2rem;
-  display: block;
-  display: flex;
-  align-items: center;
-  margin: 0 auto;
-  justify-content: center;
-  border: 1px solid var(--primary);
-  cursor: pointer;
-  color: var(--primary);
-  margin-top: 2rem;
-  &:hover {
-    color: var(--blue);
-    border: 1px solid var(--blue);
-  }
-`;
+
 const PublishDate_p = styled.p`
   display: flex;
   justify-content: flex-end;
+  font-size: 1.6rem;
 `;
