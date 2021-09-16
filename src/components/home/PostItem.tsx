@@ -61,6 +61,7 @@ export default function PostItem({ blog }: blogType): JSX.Element {
 const PostItem_li = styled.li`
   width: 300px;
   border: 1px solid var(--primary);
+
   .tumbnail {
     object-fit: contain;
   }

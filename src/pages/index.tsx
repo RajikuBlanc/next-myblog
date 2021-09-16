@@ -33,6 +33,19 @@ const PostList_ul = styled.ul`
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
+  &::after {
+    content: '';
+    display: block;
+    width: 300px;
+    height: 0;
+    ${Medias.sp} {
+      width: 100%;
+    }
+  }
+  ${Medias.custom(1024)} {
+    gap: 3rem;
+    justify-content: center;
+  }
   ${Medias.sp} {
     gap: 3rem;
   }
